@@ -1,0 +1,201 @@
+\documentclass[10pt]{beamer}
+
+\hypersetup{pdfcreator=TeX,
+pdfpagemode = FullScreen,
+}
+
+\usepackage{fontspec}
+\usepackage[fontset=adobe]{ctex}
+\usepackage{metalogo,texnames}
+\setmainfont{Cambria}
+
+\mode<presentation>
+{
+  \usetheme{XJTU}
+  \useinnertheme{rounded}
+  \usefonttheme{serif}
+}
+
+\usepackage{multicol}
+\usepackage{indentfirst}
+
+\title[钱学森书院学业辅导中心]{\LaTeX 讲座}
+\subtitle{第二部分：\LaTeX 知识清单}
+
+\author[黑山雁]{\texttt{黑山雁 xjtu-blacksmith}}
+
+\institute[Xi'an Jiaotong University]
+{\textbf{西安交通大学·钱学森书院学业辅导中心}}
+
+\date{\today}
+
+\subject{LaTeX 讲座}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{目录}
+  \tableofcontents
+\end{frame}
+
+\section{我该学习哪些内容？}
+\begin{frame}{我该学习哪些内容？}{学完是不可能学完的}
+\red{\textbf{基本内容：}}
+\begin{enumerate}
+    \item 基本样式：文档类、页边距、页眉页脚
+    \item 文档结构：标题、章节、目录、交叉引用、嵌入、附录等环境
+    \item 文本控制：字体切换、行距段距、段落及页面控制、基本文本环境
+    \item 图表处理：插图、表格绘制、浮动体使用
+    \item 数学公式：各类公式环境、符号输入、定理环境
+    \item 基层语法：命令、环境、长度与参数更改、宏包引用、报错识别
+\end{enumerate}
+
+\red{\textbf{进阶内容：}}
+\begin{enumerate}
+    \item 页面设计：盒子、样式表、封面设计
+    \item 宏包与文档类编写
+    \item 周边功能：\texttt{pgf}/Ti$k$Z，\texttt{beamer}
+    \item ……
+    \item \LaTeX\&\TeX 底层拆分与设计（\textit{成为大佬}）
+\end{enumerate}
+\end{frame}
+
+\section{基本样式}
+\begin{frame}{基本样式}
+\begin{itemize}
+    \item \red{三种基本文档类}
+    \footnote{它们所对应的参数，可参考\texttt{lshort}\textbf{表1.2}。}
+    \red{：}\texttt{article}，\texttt{book}，\texttt{report}
+    \item \red{页边距设置：}参数设置
+    \footnote{可参考\texttt{lshort}\textbf{图5.1}。}
+    ，\texttt{geometry}宏包
+    \item \red{页眉页脚设定：}预定义样式
+    \footnote{可参考\texttt{lshort}\textbf{表5.5}。}
+    ，\texttt{fancyhdr}宏包
+\end{itemize}
+\end{frame}
+
+\section{文档结构}
+\begin{frame}{文档结构}
+\begin{block}{可编译的\LaTeX{}文档必须具有的内容}
+\begin{enumerate}
+    \item 文档类的设定（\texttt{\textbackslash{}documentclass}）
+    \item \texttt{document}环境
+\end{enumerate}
+\end{block}
+\begin{block}{其他类型的\LaTeX{}代码文档}
+\begin{enumerate}
+    \item 用于嵌入到可编译文档的分文档（利用\texttt{\textbackslash{}input} 或\texttt{\textbackslash{}include} 命令）
+    \item 利用特殊环境代替\texttt{document} 环境（如\texttt{tikzpicture} ）
+    \item 宏包文件（\texttt{sty}）或文档类文件（\texttt{cls}）
+\end{enumerate}
+\end{block}
+\begin{alertblock}{\LaTeX{}不止是排版}
+注意段落、章节、图表等内容层次与结构的设计！即使原作者在这方面做的不好，排版者也有义务提高印刷品在此方面的质量！
+
+\red{\textbf{好的结构：}}章节层次分明，各节长度适中；段落疏密有致，图表浮动自如。
+\end{alertblock}
+\end{frame}
+
+\section{文本控制}
+\begin{frame}{文本控制}
+\begin{enumerate}
+    \item \red{字体系统}：字族、字形等概念
+    \footnote{可以参考刘海洋《\LaTeX{}入门》P64表\textbf{2.5}。}
+    ；对应命令（全局/局部样式
+    \footnote{例如，\texttt{\textbackslash{}bf}和\texttt{\textbackslash{}bfseries}是“全局样式命令”，
+    而\texttt{\textbackslash{}textbf}则是“局部样式命令”。准确的说，“全局样式命令”应该被称为\textbf{控制序列}，是
+    \TeX 下的概念；“局部样式命令”可简称为\textbf{命令}，必须带参数，是\LaTeX 下的概念。}
+    ）
+    \item \red{文本环境}：三种基本列表，居左/居中/居右环境，\texttt{quote}与
+    \texttt{quotation}，诗歌环境（\texttt{verse}），抄录环境（\texttt{
+    verbatim}）
+    \item \red{特殊结构}：抄录段（\texttt{\textbackslash{}verb}），脚注（\texttt{\textbackslash{}footnote}，
+    \texttt{\textbackslash{}footnotemark} + \texttt{\textbackslash{}footnotetext}），交叉引用
+    （\texttt{\textbackslash{}label}，\texttt{\textbackslash{}ref}，\texttt{\textbackslash{}cite}）
+    \item \red{分段、换行、分页}
+\end{enumerate}
+\begin{alertblock}{切勿滥用强制换行}
+请深入理解\LaTeX 的\textbf{段落机制}，牢记“\textit{换行连续，连续换行才是分段}”，不要联想到所见即所得软件中随意换行的机制！
+\end{alertblock}
+\end{frame}
+
+\section{图表处理}
+\begin{frame}{图表处理}
+\red{\textbf{关于图片：}}
+\begin{enumerate}
+    \item 请使用\texttt{graphicx}（而非\texttt{graphics}）宏包
+    \footnote{后者与前者属于同一个项目，但其功能相对于前者偏少，不便使用。}
+    \item 核心命令：\texttt{\textbackslash{}includegraphics}
+    \item 注意区分图片和浮动体，后者只是承载图片的容器！
+    \item 图片处理的工作应交由外部编辑器完成
+\end{enumerate}
+
+\red{\textbf{关于表格：}}
+\begin{enumerate}
+    \item 科技论文及书籍，优先使用三线表（\texttt{booktabs}宏包）
+    \item 大表格可使用转换软件（如\texttt{Excel2LaTeX}）或在线转换网站（如{TablesGenerator}
+    \footnote{网址：\texttt{http://www.tablesgenerator.com/latex\_tables}}
+    ）来可视化编辑
+    \item 表格可能是\LaTeX 中最让人头疼的一部分之一，请多花时间操练
+\end{enumerate}
+\end{frame}
+\begin{frame}{浮动体处理}
+\begin{alertblock}{关于浮动体的警告}
+\begin{enumerate}\kaishu
+    \item {\heiti 不要使用依赖于图形放置位置的文本。} 使用如 “这幅图...”或“下面的图
+    形...”等短语要求所指的图形需在固定位置。而像“图5...”这样的短语则允
+    许图形出现在任意位置\footnotemark。
+    \item {\heiti 放松。}一些使用者在发现图形没有十分准确的出现在他们所想要的位置
+    时，往往非常着急。这没有必要，图形的放置是\LaTeX{}的工作，最好放松一些。
+\end{enumerate}
+\footnotetext{科技论文中往往这样做，无论这些论文是否使用\LaTeX 排版。因此，不必担心读者
+对此会产生意见，接受过高等教育的人对此都是相当习惯的。}
+\begin{flushright}
+——引自《\LaTeXe 插图指南》P87
+\end{flushright}
+\end{alertblock}
+\end{frame}
+
+\section{数学公式}
+\begin{frame}{数学公式}
+\begin{enumerate}
+    \item 基本环境（美元号，\texttt{equation(*)}，\texttt{split}，\texttt{align}……）
+    \item 准备一张够用的符号表
+    \item 公式字体与正文字体的区分
+\end{enumerate}
+\end{frame}
+
+\section{基层语法}
+\begin{frame}{基层语法}
+\begin{enumerate}
+    \item \red{\textbf{命令}（command）}：执行一系列复合的功能，可以有参数也可以没有参数。是\LaTeX
+    发明的新概念。
+        \begin{itemize}
+            \item 使用\texttt{\textbackslash{}newcommand}创建新命令
+            \item 使用\texttt{\textbackslash{}renewcommand}更新命令
+        \end{itemize}
+    \item \red{\textbf{环境}（environment）}：定制了样式、实现了一组特定功能的区域块，由一对
+    \texttt{\textbackslash{}begin}和\texttt{\textbackslash{}end}命令给定
+    \item \red{\textbf{控制序列}（control sequence）}：执行一系列功能，没有参数，对整个
+    作用域
+    \footnote{\textbf{作用域}可以具体为：(1)在离控制序列最近的一对大括号或一个环境内；(2)在以上范围的
+    基础上，进一步缩小为控制序列以后的那一部分，即控制序列不能对其之前的部分生效。例如，命令“\texttt{\{
+    我\{爱\{中\textbackslash{}bfseries 国\}\}\}中国爱我}”中就将只有最内大括号内、控制序列之后的“国”字被加粗。}
+    生效。是\TeX 中原生的概念。
+\end{enumerate}
+
+\textit{关于底层语法，不妨到各个宏包、模板、文档类的源代码中去自行摸索。}
+\end{frame}
+
+%以下内容留到最后一次讲座
+%\section{\LaTeX{}与 Markdown 交互}
+%\section{钱院资料编写小组工作方式概述}
+
+
+\end{document}
+
+

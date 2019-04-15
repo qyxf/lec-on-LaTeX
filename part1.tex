@@ -1,0 +1,294 @@
+\documentclass[10pt]{beamer}
+
+\hypersetup{pdfcreator=TeX,
+pdfpagemode = FullScreen,
+}
+
+\usepackage{fontspec}
+\usepackage[fontset=adobe]{ctex}
+\usepackage{metalogo,texnames}
+\setmainfont{Cambria} % 设置缺省英文字体
+
+\mode<presentation>
+{
+  \usetheme{XJTU}
+  \useinnertheme{rounded}
+  \usefonttheme{serif}
+}
+
+\usepackage{multicol}
+\usepackage{indentfirst}
+
+\title[钱学森书院学业辅导中心]{\LaTeX 讲座}
+\subtitle{第一部分：初识\TeX\&\LaTeX}
+
+\author[黑山雁]{\texttt{黑山雁 xjtu-blacksmith}}
+% {F.~Author\inst{1} \and S.~Another\inst{2}}
+
+\institute[Xi'an Jiaotong University]
+{\textbf{西安交通大学·钱学森书院学业辅导中心}}
+
+\date
+{\today}
+
+\subject{LaTeX 讲座} % meta info
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{目录}
+  \tableofcontents
+\end{frame}
+
+\section{\LaTeX 是什么}
+
+\subsection{一切的开始：\TeX 系统的诞生}
+\begin{frame}{一切的开始：\TeX 系统的诞生}{“我只是做一个软件玩玩”}
+\begin{itemize}
+    \item \textbf{\red{高德纳}} \textit{Donald Knuth}
+    \begin{itemize}
+        \item \textbf{算法分析}的奠基人
+        \item \textbf{TAOCP}：\textit{The Art of Computer Programming}
+        \item \TeX, \MF 的开发者
+        \item \textbf{文学编程}概念的提出者
+    \end{itemize}
+    \item \red{\TeX 的诞生（1978）}：一个古老的传说
+    \begin{itemize}
+        \item 对于出版社给TAOCP的低劣排版感到极度不适，“\textit{研究古今排版艺术精华}”，开发了\TeX 排版系统
+        \item \TeX 系统最初是用\texttt{Pascal}写的，后来用\texttt{C}重写
+        \item 输出的文件为\texttt{DVI}格式（Device Independent file format，类于机器码），供不同设备打印
+        \item 对于字词断行、字体处理、数学公式排版等支持良好，已成为数学、物理、计算机学界文档排版的\textbf{事实标准}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{\LaTeX 与\TeX 的关系}
+\begin{frame}{\LaTeX 与\TeX 的关系}{\LaTeX 使我们不需要直接操作\TeX 系统}
+\begin{itemize}
+    \item \red{\LaTeX 是什么}：根植于\TeX 系统
+    \begin{itemize}
+        \item \TeX 的上手难度较大，底层处理较多；文档结构不明晰
+        \item 由Leslie Lamport开发（1983），目前的版本为\LaTeXe（离\LaTeX3还相当遥远）
+        \item 大大简化了文档的撰写流程，是目前使用\TeX 的首选方案
+        \item \LaTeX 本质上是一种\textbf{\TeX-Markup}（\textit{编译器报错往往是报}\TeX\textit{系统的底层错误}）
+    \end{itemize}
+    \item \red{凭什么用\LaTeX}：为什么不用\texttt{Word}？
+    \begin{itemize}
+        \item 编程式排版，文档结构清晰，样式易控制，输出文档干净利索
+        \item 排版质量高，“高端大气上档次”
+        \item Markup语言，容易与其他格式相互转化（\texttt{markdown}，\texttt{html}，\texttt{doc}）
+        \item 对于数学公式、矢量图的良好支持
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{一份\LaTeX 文档的典型结构}
+\begin{frame}[fragile]
+\frametitle{一份\LaTeX 文档的典型结构}
+
+{\tiny
+\begin{verbatim}
+\documentclass[12pt,a4paper]{article}
+\usepackage{ctex}
+\usepackage[top=1cm,bottom=1.5cm,left=2cm,right=2cm]{geometry}
+\title{黑山雁的个人介绍}
+\author{黑山雁}
+\date{\today}
+\begin{document}
+\maketitle
+我叫\textbf{黑山雁}，是加里敦大学的一年级新生。
+我的专业是\textit{计算机科学与技术}。
+我将从这里开始启航，从这里走向远方。
+我感到非常激动。
+
+以下简单地介绍一下我自己。
+\section{个人背景}
+我世居东海之滨，见惯了潮涨潮退，日出日落。...
+\section{求学经历}
+我先后在开关厂幼儿园、希望小学、第一中学就读。...
+\section{性格特点}
+我不是一个认真的人，但我认真起来不是人。...
+\section{对未来发展的期待}
+我的梦想是月入百万，早日走上人生巅峰。...
+\end{document}
+\end{verbatim}
+}
+
+\begin{itemize}\small
+    \item \red{编译的必要元素}：\texttt{documentclass}, \texttt{document}环境
+    \item \red{文档结构}：\texttt{maketitle}, \texttt{section}等
+    \item \red{样式设置}：\texttt{textbf}, \texttt{textit}等
+    \item \red{外部引用}：宏包（\texttt{ctex}），文档类，参数设置
+\end{itemize}
+\end{frame}
+
+\subsection{\LaTeX 代码如何被编译}
+\begin{frame}{\LaTeX 代码如何被编译}
+\begin{itemize}
+    \item \red{原生\LaTeX}：\texttt{tex->dvi(->ps/pdf)}
+    \item \red{现代方法}：\texttt{tex->pdf} （PDF\LaTeX, \XeLaTeX, \LuaLaTeX）
+    \item \LaTeX 不是独立的“编程语言”，编译时仍要返诸\TeX 系统：编译器报错机制的\textbf{固有缺陷}
+    \item \red{先编译再可视}：\texttt{tex}代码文件不可直接可视化，需先生成\texttt{pdf}文档才能查看效果（\textit{“所思即所得” vs. “所见即所得”}）
+    \item \red{重要的相关文件}：不需要的话可以在编译后删除
+    \begin{itemize}
+        \item \texttt{\red{log}}：日志文件（和你在控制台看到的一样）
+        \item \texttt{\red{toc}}：章节目录样式文件
+        \item \texttt{\red{out}}：引用标记文件（书签、超链接）
+        \item \texttt{\red{bbl}}：由\BIBTEX 生成的记录文件
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\section{如何正确地学习\LaTeX}
+\subsection{万事开头难：不要陷进这三个坑}
+\begin{frame}{万事开头难：不要陷进这三个坑}{切勿自废武功}
+\begin{enumerate}
+    \item \red{请远离\texttt{CJK}宏包与$\mathbb{C}$\TeX 套装}
+    \begin{itemize}
+        \item \texttt{CJK}是十年前处理中文的方式
+        \item $\mathbb{C}$\TeX 已经多年未更新，功能较为冗余
+        \item 处理中文，优先使用\texttt{ctex}宏包或\texttt{xeCJK}宏包
+    \end{itemize}
+    \item \red{不要按\texttt{Word}的思路来学习\LaTeX}
+    \begin{itemize}
+        \item 常见误区：强制换行、更换字体、图文混排、浮动对象
+        \item Meaningless questions: “如何在Word中使用\LaTeX？” “怎样在\LaTeX 中实现Word中的XX功能？”
+        \item 请逐渐习惯\LaTeX 的思维方式——胸有成竹
+    \end{itemize}
+    \item \red{切勿花费过多精力于\LaTeX 的细枝末节之上}
+    \begin{itemize}
+        \item \TeX/\LaTeX 是近四十年前的发明，与现代程序设计原理有所冲突（事无巨细，力求完美）
+        \item 四十年以来的层层累进，内容太多（网状分布），不指望能够马上学通
+        \item 现代Markup语言已能使内容与样式充分分离
+        \item “\textit{不要做}\LaTeX\textit{的斗牛犬}”，文档的内容最重要
+        \item 使用\LaTeX 的最高境界：排好内容且不浪费时间
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\subsection{安装\TeX 发行版}
+\begin{frame}{安装\TeX 发行版}{“工欲善其事，必先利其器”}
+\begin{enumerate}
+    \item \textbf{\TeX 发行版}
+    \begin{itemize}
+        \item \texttt{\red{TeX Live}}：TUG开发，跨平台，更新及时，\red{值得信赖}
+        \item \texttt{\red{MikTeX}}：Windows专享，宏包安装较方便，\red{值得信赖}
+        \item \texttt{\red{MacTeX}}：虽然我买不起苹果电脑，但是仍然\red{值得信赖}
+        \item \red{$\mathbb{C}$\TeX}：虽然不推荐，但是还是可以用的，\red{习惯就行}
+    \end{itemize}
+    \item \textbf{编辑器选择}
+    \begin{itemize}
+        \item 专用免费编辑器：\texttt{TeXworks}，\texttt{TeXStudio}，\texttt{TeXmaker}，\texttt{TeXshop}
+        \item 专用收费编辑器：\texttt{WinEdt}（\textit{可以买一个}）
+        \item 通用文本编辑器：\texttt{Vim}，\texttt{VS Code}，\texttt{Sublime}，\texttt{Atom}，\texttt{Notepad++}
+        \item 其他：\texttt{Notepad}（\textit{其实挺好的}）
+    \end{itemize}
+    \item \textbf{忠告：}不要在编译环境上花费太多精力，顺手就行；一定要把宏包装齐（\texttt{full}），否则很有可能引起自闭
+\end{enumerate}
+\end{frame}
+
+\subsection{关于\TeX 的编译引擎}
+\begin{frame}{关于\TeX 的编译引擎}
+\begin{enumerate}
+    \item \TeX（\texttt{latex}）：\texttt{tex->dvi->pdf}（需要其他工具）
+    \item PDF\TeX（\texttt{pdflatex}）：\texttt{tex->pdf}（不支持Unicode，西文首选）
+    \item Lua\TeX（\texttt{lualatex}）：\texttt{tex->pdf}（支持Unicode，但不稳定）
+    \item \XeTeX（\texttt{xelatex}）：\texttt{tex->xdv->pdf}（支持Unicode，中文首选）
+    \item \BIBTEX（\texttt{bibtex}）：输出参考文献
+    \item \textbf{请使用\texttt{ctex}宏包或\texttt{ctexart}等文档类，配合\red{UTF-8编码}进行中文排版！}
+\end{enumerate}
+\end{frame}
+
+\subsection{自学资料推荐}
+\begin{frame}{自学资料推荐}{以下资料仅供入门使用}
+\begin{enumerate}
+    \item \textbf{\red{电子文档}}
+    \begin{itemize}
+        \item \texttt{lshort}：涵盖了所有常用的功能与理念，涉及范围较广，有对中文排版的介绍
+        \item \texttt{A Primer}：经典，着重于\LaTeX 的基本功能，内容更详细
+        \item \texttt{lnotes}：可供进阶阅读，对小白不完全友好
+    \end{itemize}
+    \item \textbf{\red{出版书籍}}
+    \begin{itemize}
+        \item \red{刘海洋 - \LaTeX\textit{入门}}：内容较新，覆盖面广，内容安排较合理
+        \item \red{胡伟 - \LaTeXe\textit{完全学习手册}（第二版）}：内容较深，介绍详细，可以提升水平
+        \item \red{陈志杰 等 - \LaTeX\textit{入门与提高（第二版）}}：内容已经过时（\texttt{CJK}方式），但仍然值得参考，有很多很好的points
+    \end{itemize}
+    \item \textbf{\red{其他}}：\textit{终身学习吧！}
+    \begin{itemize}
+        \item \texttt{LaTeXStudio}：\texttt{www.latexstudio.net} （有微信公众号和QQ群）
+        \item 知乎（很多dalao的活跃场所；要适度）
+        \item \texttt{Stack Exchange}：\texttt{tex.stackexchange.com}
+        \item 宏包与文档类的自带\texttt{doc}（\texttt{texdoc}命令）
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\section{关于\LaTeX 公式}
+\subsection{\LaTeX 公式的基本语法}
+\begin{frame}{\LaTeX 公式的基本语法}
+\begin{itemize}
+    \item \textbf{两种基本环境（不编号）}：行内\texttt{\$...\$}，行间\texttt{\$\$...\$\$}
+    \item \textbf{基本要素}：独立性，上下标，作用域
+    \begin{itemize}
+        \item \red{独立性}：除上下标/分数以外，不同的符号之间无从属关系，从左至右排列
+        \item \red{上下标}：上标\texttt{\^}，下标\texttt{\_}，可用于求和/积分/括号等
+        \item \red{作用域}：用大括号\texttt{\{\}}合成多个符号与命令（如在上下标中）
+    \end{itemize}
+    \item \textbf{学习公式的最好方法}：自行练习\textbf{拆分}、\textbf{组合}公式！
+    \item \textbf{一个简短的练习}：
+    $$\lim_{n\to\infty}\int_{-\pi}^\pi\frac{n!\cdot2^{2n\cos\phi}}{\left|\prod\limits_{k=1}^n(2n\mathrm{e}^{i\phi}-k)\right|}\mathrm{d}\phi=2\pi$$
+    \item \textbf{以上用到的命令}：\texttt{lim}，\texttt{to}，\texttt{infty}，\texttt{int}，\texttt{cdot}，\texttt{frac}，\texttt{prod}（\texttt{sum}）
+\end{itemize}
+\end{frame}
+
+\subsection{在哪里可以用\LaTeX 公式？}
+\begin{frame}{在哪里可以用\LaTeX 公式？}{不提供\LaTeX 公式输入的论坛都是……}
+\begin{enumerate}
+    \item \red{允许使用\LaTeX 输入的地方}：
+    \begin{itemize}
+        \item 知识分享社区 - 知乎 \texttt{www.zhihu.com}
+        \item 中文百科网站 - 百度百科 \texttt{baike.baidu.com}
+        \item 国际百科网站 - 维基百科 \texttt{en.wikipedia.org}
+        \item 英文数学论坛 - \texttt{artofproblemsolving.com/community}
+        \item 知识搜索引擎 - Wolfram Alpha \texttt{www.wolframalpha.com}
+        \item 博客平台 - CSDN \texttt{blog.csdn.net}
+        \item 博客平台 - 博客园 \texttt{www.cnblogs.com}
+    \end{itemize}
+    \item \red{你还可以用}：
+    \begin{itemize}
+        \item 在线公式编辑 - CodeCogs \texttt{www.codecogs.com/latex/eqneditor.php}
+        \item 公式扫描转换 - Mathpix Snipping \texttt{mathpix.com}
+        \item 支持\LaTeX 的公式编辑器 - MathType \texttt{...}
+        \item Word Ofiice 2003的公式编辑器
+        \item 画图工具+手写板绘制公式
+        \item 写在纸上然后拍照
+        \item \_\^\$\{\}\~$\backslash$
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+\section{作业}
+\begin{frame}{第一次讲座的课后作业}{要么认真写，要么不写}
+\begin{block}{自由排版练习}
+\begin{itemize}
+\item 请选择下列文档之一进行排版，格式转化、字体选择、页面样式设置、横排还是竖排、自己写/用工具转换还是百度搜均无所谓，唯一的要求是在排版后将\texttt{tex}及\texttt{pdf}文件交给我。我将提供相关的修改意见，帮助大家一同提高进步。
+\item 写作业时，可以将原来的文本做一定删改（但不要添加），以减少工作量而体现排版效果。\textbf{另外，请大家不要将自己写好的东西发布到网上！！！}
+\end{itemize}
+\end{block}
+
+\begin{enumerate}
+    \item 费立涵同学贡献的《\textit{GRE备考指南V1.0}》（\texttt{docx}）
+    \item 我发布的一篇博客《\textit{连续函数与“有理”分析}》（\texttt{html}）
+    \item 鲁迅《\textit{魏晋风度及文章与药及酒之关系}》（\texttt{txt}）
+\end{enumerate}
+\end{frame}
+
+\end{document}
+
+

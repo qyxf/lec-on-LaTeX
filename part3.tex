@@ -1,0 +1,285 @@
+\documentclass[10pt]{beamer}
+
+\hypersetup{pdfcreator=TeX,
+pdfpagemode = FullScreen,
+}
+
+\usepackage{fontspec}
+\usepackage[fontset=adobe]{ctex}
+\usepackage{metalogo,texnames}
+\setmainfont{Cambria}
+
+\mode<presentation>
+{
+  \usetheme{XJTU}
+  \useinnertheme{rounded}
+  \usefonttheme{serif}
+}
+
+\usepackage{multicol}
+\usepackage{indentfirst}
+
+\title[钱学森书院学业辅导中心]{\LaTeX 讲座}
+\subtitle{第三部分：Markdown简介与任务布置}
+
+\author[黑山雁]{\texttt{黑山雁 xjtu-blacksmith}}
+
+\institute[Xi'an Jiaotong University]
+{\textbf{西安交通大学·钱学森书院学业辅导中心}}
+
+\date{\today}
+
+\subject{LaTeX 讲座}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{目录}
+  \tableofcontents
+\end{frame}
+
+\section{关于\LaTeX 的最后建议}
+\begin{frame}{关于\LaTeX 的最后一点内容}{真的再没有了}
+\begin{alertblock}{警告}
+{\kaishu 学完\LaTeX{}是不可能学完的，一辈子都不可能学完的。}
+资料的亮点在于其内容，排版样式只能在内容精良的前提下助其锦上添花。
+\begin{enumerate}
+    \item \textbf{\red{纯文本}}：用\texttt{notepad}都行，不需要任何\LaTeX{}技术
+    \item \textbf{\red{含公式文本}}：会一点\LaTeX{}公式语法即可，不需要系统学习\LaTeX{}
+    \item \textbf{\red{正文排版}}：若已掌握\texttt{part2}中提到的所有内容，并已反复操练，
+    烂熟于心，则便已完全足够
+    \item \textbf{\red{模板与宏包设计}}：人外有人，天外有天，学习是一辈子的事情
+\end{enumerate}
+\end{alertblock}
+\end{frame}
+
+\section{Markdown简介}
+\subsection{什么是Markdown}
+\begin{frame}{什么是Markdown}{先Mark再说}
+\begin{itemize}
+    \item \red{Markdown}：文本标记语言（\textbf{Mark-up}）
+    \item \red{基本原理}：用最简单的命令、符号在纯文本中指定必要的样式
+\end{itemize}
+
+\begin{center}\color{XJTUdarkred}
+\texttt{*Hello*} -> \textit{Hello}; \texttt{**Hello**} -> \textbf{Hello};
+\end{center}
+
+\begin{itemize}
+    \item \red{语言特性}：与\texttt{html}兼容；不限定编译方式（\textit{可依据实际需要
+    定制格式与样式}）；不设定语法规范（\textit{流派众多}）；可以内嵌\LaTeX{}公式（
+    \textit{需要外部支持}）
+    \item \red{功能特性}：内容与样式完全分离，节省撰写和排版时间；易于与其他文本/富文本格式
+    相互转化；简洁、自由，上手快，人见人爱
+    \item \red{流行趋势}：越来越多的网站、论坛、邮箱乃至代码编辑器支持或默认Markdown为
+    标准文本格式
+\end{itemize}
+
+\end{frame}
+
+\subsection{自学Markdown指南}
+\begin{frame}{自学Markdown指南}{这可能会是你见过的最简单的“编程语言”}
+作为一门简单易上手的工具，请各位同学（\textit{特别是对\LaTeX{}不感兴趣，又想贡献内容和
+参与部分排版工作的同学}）自学Markdown。
+\begin{enumerate}
+    \item \red{实践中学习}（English）：\texttt{https://www.markdowntutorial.com}
+    \item \red{轻松入门}（English）：\texttt{https://guides.github.com/features/mastering-markdown}
+    \item \red{本国语言}：\texttt{https://www.appinn.com/markdown/basic.html}
+    \item \red{进阶指南}：\texttt{http://www.markdown.cn}
+\end{enumerate}
+
+\begin{block}{语录}
+{\kaishu
+世界上最简单而最富有成就感
+\footnote{成就感是虚幻的，其实不会有人去看你写的教程。}
+的事情，是写一份Markdown入门教程。更富有成就感的事情是：用Markdown写Markdown教程。
+
+\begin{flushright}
+——智叟
+\end{flushright}
+}
+\end{block}
+\end{frame}
+
+\subsection{Markdown与\LaTeX{}的对应关系}
+\begin{frame}{Markdown与\LaTeX{}的对应关系}{这是一个单射}
+\begin{enumerate}
+    \item \red{文档结构}：章节标题（\texttt{\textbackslash{}section -> \#}）
+    \item \red{文本控制}：粗斜体（\texttt{\textbackslash{}textbf -> **...**}），抄录
+    （\texttt{\textbackslash{}verb|...| -> `...`}），列表（\texttt{itemize}与
+    \texttt{enumerate}），引用（\texttt{quote -> >...}），脚注（\texttt{\textbackslash{}
+    footnote -> [\^\ ...]}），超链接（\texttt{\textbackslash{}href -> []()}）
+    \item \red{分段机制}：完全一样（?!）
+    \item \red{图表处理}：图片插入（\texttt{\textbackslash{}includegraphics -> ![]()}），
+    表格绘制（\texttt{tabular -> ---|---|---}）
+    \item \red{数学公式}：Markdown支持在正文中用\texttt{\$\$} 等符号或环境插入公式（
+    取决于具体编译器的实现机制）
+\end{enumerate}
+
+\begin{quotation}
+学好\LaTeX{}语法，走遍一切Mark-up都不怕！
+\end{quotation}
+\end{frame}
+
+\subsection{Markdown流派简述}
+\begin{frame}{Markdown流派简述}{“天下分久必合，合久必分”}
+\begin{itemize}
+    \item \red{原生Markdown (\texttt{markdown.pl})}：不支持表格，不支持自动链接，不
+    支持……转换规则不甚严格
+    \item \red{CommonMark} \includegraphics[width=0.04\textwidth]{pic/Markdown.png}：
+    一套比较公认的Markdown规范格式，转换规则严格
+    \item \red{GFM (GitHub Flavored Markdown)}：衍生自CommonMark，删除线、自动链接、
+    代码高亮、表格语法
+    \item \red{MultiMarkdown}：脚注、参考文献、元数据、公式、TOC、导出增强……功能很多；
+    自带一套多格式转换器
+    \item \red{Pandoc's Markdown}：Pandoc软件自定义的Markdown语法，可微调，与GFM基本兼容，
+    亦支持许多MultiMarkdown中的功能
+\end{itemize}
+
+\begin{block}{提示}
+\textbf{不建议}在分辨各流派的“\textit{特有语法}”方面花费太多精力，以自己用的顺手的语法架
+构为准。可到BabelMark
+\footnote{网址：\texttt{https://babelmark.github.io}}
+网站测试自己的Markdown代码在不同语法下效果如何。
+\end{block}
+\end{frame}
+
+\subsection{Markdown与其他文档格式交互}
+\begin{frame}{Markdown与其他文档格式交互}{越简单，越混乱}
+\begin{itemize}
+    \item Markdown本就是一种用于导出的纯文本格式（To \texttt{html}）
+    \item 一般的Markdown引擎都是将Markdown转换为\texttt{html} 块
+    \item 专用编辑器、Markdown插件往往支持导出为\texttt{pdf}，\texttt{epub}等个别常
+    见格式，样式难以调整
+    \item Pandoc与MultiMarkdown等软件可实现多格式互转，但可读性、兼容性堪忧
+\end{itemize}
+
+\begin{block}{提示}
+除了Markdown到HTML的单向转换，以及在严格的语法和样式约束下撰写的Markdown到样式固定的
+\texttt{pdf}等的单向转换，其余的格式转化都是\textbf{不稳定、不可靠}的，只能作为一种
+\textit{辅助手段}加快排版的进度、减少重复劳动。
+\end{block}
+\end{frame}
+
+\section{学研部任务布置与工作规范}
+\subsection{组织架构与任务分工}
+\begin{frame}{组织架构与任务分工}\footnotesize
+\begin{itemize}
+    \item \red{\textbf{组织架构}}
+    \begin{enumerate}\footnotesize
+        \item \red{编写组}：负责提供、初步整理、收集归档资料，并以可能的方式整理为初稿；根据
+        具体的任务、项目，进一步分化为若干从属的工作小组
+        \item \red{排版组}：负责将编写组提供的稿件转写为规范的\LaTeX{}/Markdown文档，及时更新
+        GitHub仓库中的版本；与编写组之间不做显著区分，可从属于各项目的工作小组
+        \item \red{发行组}：负责印刷品最终的样式调整、模板设计与维护，以及作品的印刷、发布
+    \end{enumerate}
+    \item \red{\textbf{运行机制}}
+    \begin{enumerate}\footnotesize
+        \item \red{工作小组}：每项中等及以上工作量的多人项目必须成立工作小组，设定时间表，
+        充分讨论的同时及时跟进工作（配合好GitHub中的相关功能）
+        \item \red{分层次运行}：\red{编写组}（\textit{润色内容}）->\red{排版组}（
+        \textit{规范格式}）->\red{发行组}（\textit{统一样式}）三层次，互相促进，确保作
+        品的质量
+        \item \red{明确任务}：提前规划相关事项，及时跟进任务进度，多项任务同时进行
+    \end{enumerate}
+    \item \red{\textbf{任务分工}}
+    \begin{enumerate}\footnotesize
+        \item {\kaishu 如果你只会用Word，或不愿花费精力做排版工作}：\red{编写组}（允许提供手写稿）
+        \item \textit{如果你只是酷爱敲公式、敲回车}：\red{编写组}或\red{排版组}（抄写员）
+        \item {\kaishu 如果你是\LaTeX{}高手}：\red{排版组}及\red{发行组}
+        \item \textit{如果你有好的内容}：请提供详细的资料/策划，我们将为你组织\red{工作小组}
+        \item {\kaishu 如果你有好的创意/美工设计}：请直接提出
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\subsection{撰写与排版工作规范}
+\begin{frame}{撰写与排版工作规范}
+\begin{block}{\LaTeX{}文档规范}\scriptsize
+\begin{enumerate}
+    \item 尽量使用默认样式进行排版效果的测试，如有特殊需求应当注明
+    \item 使用新宏包前应检查其版本，确保其版本和年代较新
+    \item 减少缩进的使用
+    \item 确保章节的划分已能达到一般出版物的水平
+    \item 图片的调整和表格的样式设定等，不要过于苛求，此工作留由发行组进行
+    \item 避免强制换行、手工加距离（\texttt{\textbackslash{}vspace}）、非必要换页
+    等不自然、不能自适应样式调整的操作
+    \item 充分利用粗斜体、常见特殊环境等基本功能来优化文本效果，不得使用复杂盒子、色彩
+    调整、自定义字体
+\end{enumerate}
+\end{block}
+
+\begin{alertblock}{Markdown文档规范}\scriptsize
+\begin{enumerate}
+    \item 使用Markdown作为最终格式的前提：内容简单，近于纯文本，不含公式的交叉引用，
+    不需要图文混排
+    \item 暂以GFM为标准语法规范，提交文档前应通过GitHub的网页端进行测试
+    \item 不得使用\texttt{html}标签
+    \item 使用代码块即可，不要使用代码高亮
+\end{enumerate}
+\end{alertblock}
+
+\centering\kaishu 排版组出产的文档，限定为\LaTeX{}或Markdown格式。
+
+\end{frame}
+
+\subsection{奖励制度与资料分发}
+\begin{frame}{奖励制度与资料分发}
+\begin{exampleblock}{工时发放标准}\footnotesize
+\begin{enumerate}
+    \item \textit{章节式资料编写}：每章总计发放6-8工时，根据质量确定，按照参与者的贡献量
+    再行分配
+    \item \textit{单篇资料编写}：2000字以下发放4-6工时，5000字以上按字数和质量发放8-12工时
+    \item \textit{排版}：按照\LaTeX{}代码行数，每200行发放1工时
+\end{enumerate}
+
+其他未提及的情况，暂不制定标准，根据实际情况再行商议。
+\end{exampleblock}
+
+\begin{alertblock}{资料如何分发}\footnotesize
+\begin{enumerate}
+    \item \red{电子版}：\LaTeX{}生成\texttt{pdf}文件后，发布在百度网盘上供同学下载
+    （\textit{需加密为不得打印的版本}）
+    \item \red{纸质版}：对优质且需求量大的作品，由学辅付费印刷并向同学们发放
+    \item \red{源代码}：根据内容提供者的意愿，发布在GitHub上或交由其自行处理
+    \item \red{宣传活动}：针对好的作品，发布相关的海报、推送，或开展赠书活动，让钱院乃
+    至全校的各位同学均能看到
+\end{enumerate}
+\end{alertblock}
+\end{frame}
+
+\subsection{近期需要筹备的事项}
+\begin{frame}{近期需要筹备的事项}
+\begin{enumerate}
+    \item 组织架构的逐步定型
+    \item 各项工作
+    \footnote{目前正在进行的项目包括：大物题解、流力题解、已有资料排版和模板设计。}
+    的稳步推进（可参见\texttt{github/qyxf}的Project）
+    \item 关于各班级课程情况的统计，以及对目前流行资料的调查
+    \item 第一期杂志和第一版新生指南的筹备
+\end{enumerate}
+
+\begin{alertblock}{我该做些什么？}
+\begin{enumerate}
+    \item 第9周周三前，给学研部三位负责人之一提交一份自述，字数不限，应包括：
+    \textit{我会/擅长/希望做什么，我想参与哪项工作（我要提出什么工作），我能在资料编写方面投入多大精力}
+    \item 学习Markdown，有余力的情况下学习Git与GitHub的基本使用方法
+    \item 积极贡献资料，参与编写工作
+\end{enumerate}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\vfill
+\begin{center}\Huge\itshape
+Thank you!
+\end{center}
+\vfill
+\end{frame}
+
+\end{document}
+
+
