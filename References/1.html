@@ -1,0 +1,2265 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><title>数学分析的主线，高等数学的一切：连续函数与“有理”分析</title>
+<style>
+body {
+    max-width: 980px;
+    border: 1px solid #ddd;
+    outline: 1300px solid #fff;
+    margin: 16px auto;
+}
+
+body .markdown-body
+{
+    padding: 45px;
+}
+
+.markdown-body {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    color: #333333;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style>
+</head>
+<body>
+  <article class="markdown-body">
+    <h1 id="_1">数学分析的主线，高等数学的一切：连续函数与“有理”分析<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h5 id="_2"><a href="https://www.cnblogs.com/xjtu-blacksmith/p/9250454.html">博客园原文地址</a><a class="headerlink" href="#_2" title="Permanent link"></a></h5>
+<p>这里要讨论的，是关于<strong>数学分析</strong>（以及工科生的<strong>高等数学</strong>）这门课程本身的某些中心思想和知识内容的组织方式。我并不是数学教师，甚至不是数学系学生，但是我作为一个“业余”读者，还是从这门课程中发现了一些自己以前没有注意过的东西。在此分享出来，供大家参考和批评。</p>
+<h2 id="1">1 连续函数的意义<a class="headerlink" href="#1" title="Permanent link"></a></h2>
+<p>首先，让我们从一个高等数学中再熟悉不过的概念——<strong>连续性</strong>说起。所谓函数的连续性定义如下：</p>
+<blockquote>
+<p>设实函数$f(x)$在点$x_0$及其附近有定义。若给定一任意小的$\varepsilon&gt;0$，总能找到对应的$\delta&gt;0$使得$|f(x)-f(x_0)|&lt;\varepsilon$对所有的$|x-x_0|&lt;\delta$都成立，则称$f(x)$在$x_0$处<strong>连续</strong>。若一个函数在其定义域内都连续，则常称该函数为<strong>连续函数</strong>。</p>
+</blockquote>
+<p>我在这里没有直接使用极限的记法，仍然用$\varepsilon-\delta$方法表述了一遍。“连续”两个字究竟是在说什么呢？如果我们直观地把定义翻译成自然语言，就是说：如果函数在其定义域内某一点（且称其为<em>中心点</em>）附近，总是可以划出一片足够小的区域，使得该区域内的函数值都与函数在中心点处的值充分接近，那么就称这个函数在该点处连续。归根结底，我们不如说：函数在某点连续，就是说函数在此足够<em>平坦</em>，足够<em>光滑</em>。这是我们能够从各种连续函数的图像所得到的一种印象。</p>
+<p style="text-align: center;"><img alt="函数的连续性-平滑与平坦" src="http://images.cnblogs.com/cnblogs_com/xjtu-blacksmith/1245580/o_连续.jpg" /></p>
+<p>我们可以说，连续性是一种<em>较好</em>的性质，因为很多函数并不能满足连续性的要求。一些函数在若干个离散的点上不连续，这里引出了关于间断点的讨论；另一些函数则干脆是处处不连续，比如在教材中常常讨论的诸如Dirichlet函数与Riemann函数之类。尽管如此，这里却要给出对微积分课程给出一个关键的断语，那就是：</p>
+<blockquote>
+<p>连续函数是数学分析课程（理科）的主线，更是高等数学课程（工科）所讨论的几乎全部内容。</p>
+</blockquote>
+<p>在已经指出许多常见常用但并不连续的函数之后，为何我们仍然会得到这样一个结论呢？我们不妨再回头看看连续函数究竟有怎样的特性。</p>
+<h3 id="11">1.1 连续函数类是实函数类的“杰出代表”<a class="headerlink" href="#11" title="Permanent link"></a></h3>
+<p>关于连续函数，有一个很不起眼的命题——这个命题<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>常常作为一些数学分析乃至实变函数教材课后一道简单的习题列出，而工科生则可能没有接触过这个命题。其内容大致是这样的：</p>
+<blockquote>
+<p><strong>命题</strong>：设有两函数$f_1(x),f_2(x)$均在一个开区间$(a,b)$上连续，其中$a&lt;b$为两个任意的实数。若$f_1(x)$与$f_2(x)$在$(a,b)$内所有的有理点处取值相同，即
+$$f_1(x)=f_2(x)\ (\forall x\in\mathbb{Q}),$$
+则函数$f_1(x),f_2(x)$必然在$(a,b)$上所有点处都取值相同，即它们在区间上是同一个函数。</p>
+</blockquote>
+<p>这个命题换句话说，就是：对于一个连续函数而言，只需要其在某区间$(a,b)$上所有有理点上的值，就可以完全确定这个连续函数在$(a,b)$内的情况，尽管我们甚至还不知道这个函数在那比有理点“多得多”（这个所谓的“多”当然不是严格描述）的无理点上究竟为何值——事实上大多数情况下我们也无法算出。</p>
+<p>对于数学系的学生而言，这一命题看起来是十分普通的，至多不过为一道普通的练习题罢了；但是，如果我们现在是处在一个数学理论之“局外人”的视角来看待这个命题，我们不能不说这样一个结果是极其值得思考的。为了便于读者理解这个命题的深层内涵，这里我们还是有必要把这个命题证明一下，尽管所用的工具仍然是对于一般人而言显得枯燥无味的$\varepsilon-\delta$理论（也就是利用前面那条连续性的定义来证明）。</p>
+<hr />
+<p><strong>证明</strong>：我们现在需要做的事情，就是证明满足题设的这样两个$f_1(x),f_2(x)$在区间$(a,b)$上的所有无理点处也取相同的值。现在任取一个介于$a,b$之间的无理数$x_0$，那么我们要做的事情就是证明$f_1(x_0)=f_2(x_0)$的成立。考虑到这两个函数在无理点$x_1$处都是连续的，因而对于任给的$\varepsilon&gt;0$，分别有与之对应的正数$\delta_1,\delta_2$使得$$\begin{cases}|f_1(x)-f_1(x_0)|&lt;\dfrac{\varepsilon}{3}\ (|x-x_0|&lt;\delta_1)\|f_2(x)-f_2(x_0)|&lt;\dfrac{\varepsilon}{3}\ (|x-x_0|&lt;\delta_2)\end{cases}$$我们取$\delta$为$\delta_1$与$\delta_2$中之较小者——从而这样上面的两个不等式都能在$|x-x_0|&lt;\delta$的范围内满足，那么利用绝对值的三角不等式可以得到$$|f_1(x_0)-f_2(x_0)|\leq|f_1(x_0)-f_1(x)|+|f_1(x)-f_2(x)|+|f_2(x)-f_2(x_0)|$$观察一下不等式最右侧的情况，其中$|f_1(x_0)-f_1(x)|$与$|f_2(x)-f_2(x_0)|$在$|x-x_0|&lt;\delta$时均小于$\dfrac{\varepsilon}{3}$，相当于说它俩都是可以“任意小”的内容。而中间的一项$|f_1(x)-f_2(x)|$，在无理点自然是不知如何，但是在所有有理点处必然为$0$。由于在任何一个无理点的任意小邻域内总是有有理点存在，因此我们可以确认：无论$x_0$与$\delta$如何，总是可以在$|x-x_0|&lt;\delta$的范围内找到一个有理点，从而使得$$|f_1(x_0)-f_2(x_0)|\leq\dfrac{\varepsilon}{3}+0+\dfrac{\varepsilon}{3}&lt;\varepsilon,$$并且考虑到$|f_1(x_0)-f_2(x_0)|$是一个常数，不因$x$的取值而改变，所以我们得到$|f_1(x_0)-f_2(x_0)|&lt;\varepsilon$总是能够成立。由$\varepsilon$可以任意小，故只能有$|f_1(x_0)-f_2(x_0)|=0,$也就是$f_1(x_0)=f_2(x_0).$这样便证明了$f_1(x)$与$f_2(x)$即使在无理点也取相同的值——这正是我们所期待的结论。</p>
+<hr />
+<p>证明是枯燥的——我在叙说的过程中显得比较罗嗦，无非是为了避免给一般的读者造成太大障碍。在证明过程中，别的许多细节或技巧都可以忽略（例如取$\dfrac{\varepsilon}{3}$的“别有用心”），唯有一点特别重要：</p>
+<blockquote>
+<p>在任何一个无理点的任意小邻域内总是有有理点存在。</p>
+</blockquote>
+<p>这正是证明的核心。从比较直观的角度出发，这个命题的证明过程其实可以非常容易的为我们理解：由于在任何一个无理点的附近都有有理点（说得更仔细一些，是无穷多个），再加上函数的连续性要求，这使得连续函数在无理点处的取值绝不是<strong>自由</strong>的——它必须与其周围这样无数多个有理点处的函数取值相<em>协调</em>，结果便是函数在无理点处的取值事实上已经被这些有理点<em>锁死</em>了（所谓的<em>qin-ding</em>）。这便是隐藏在令人头痛的$\dfrac{\varepsilon}{3}$之下的基本逻辑——函数的连续性与其在这看似很稀疏的有理点处之取值，便足以确定函数在整个实数域上的分布。</p>
+<p>相反地，对于非连续的函数，当然不可能有这样的好事情。有间断点的函数当然可以在间断点处取任何值——间断点附近的那些连续点不能像在连续函数中那样，约束住函数在该间断点的取值。对于更一般一些的函数类，例如Riemann可积函数，所谓约束更是天方夜谭了——凡是熟悉Riemann可积性理论的学生一定知道，一个Riemann可积函数在一段区间上的积分，不因其在该区间上任意有限个（甚至可数无穷个）点处函数值的改变而发生变化。对于这些更加一般的函数，我们可以说：只要有<strong>一个点</strong>处的函数值不知道，函数就确定不下来。对于只含离散间断点的函数而言，我们可以说这个点是任意一个间断点（因为在间断点之外函数还是连续的）；而对于由Riemann积分值确定的一个可积函数，这个点可以是其定义域上的任何一个点了——也就是说，必须确定了所有的点才能真正的定下来这个函数。可以说以这种方式定义出来的函数是相当的<em>桀骜不驯</em>的。</p>
+<p>到这里，我们可以初步得到一个结论了：连续函数类，正是整个实函数类之<strong>杰出代表</strong>。连续函数是一切实函数中最简单、最方便处理的一类函数，也最与我们对所谓“函数”的表观认识接近。从感性的角度来看，如果我们已经知道了某一个函数在足够多个点（例如所有的有理点）的取值，这个函数不就应该定下来了吗？然而，只有连续函数才具有这样的性质。我们同样可以将前面那个命题按另外一种方式来理解：在所有有理点处取给定函数值的连续函数是<strong>唯一</strong>的——完美的东西，理应是唯一的。</p>
+<h3 id="12">1.2 连续函数与实际科学问题的关系<a class="headerlink" href="#12" title="Permanent link"></a></h3>
+<p>前几天与同学闲聊，说到高等数学的知识内容，他不禁感慨：“数学家们研究那么多千奇百怪的东西，在现实中又<strong>不存在</strong>，有什么意义呢？”这种看法，大致可以说是我们大多数大学生对于大学数学的普遍认识了。</p>
+<p>这里首先要讨论的倒不是这种<em>成见</em>，而是连续函数与实际科学问题的联系。众所周知，一旦我们打算在实际科学问题中应用诸如微积分之类的数学工具，我们便已经默认了我们所用的函数应当是“连续”的——这个“连续”不同于前面所讨论的那种数学上的连续性，而是说这一个函数理应在观测域内的任何一个点处都有定义都有值。至于数学上的那种连续性，对于大多数自然科学问题也往往是需要的，不过我们必须认识到这种连续性并非必要的事物——至少到目前为止我们可以这样认为。</p>
+<p>例如，现在我们要利用微分方程来研究某一动物种群的增长。设有一个时间变量$t$（我们可以认为它是从研究开始的时间点计起的），又记这样一个动物种群中的个体数在$t$时刻为$N(t)$。此外，我们还假设，这一种群有一个固定的出生率$b$。由于出生率表示的是“在单位时间内出生的个体数占当前个体总数的比率”，我们在这里把所谓的“单位时间”压缩为一个时间微元$\mathrm{d}t$以表示瞬态过程，那么就有$b=\dfrac{\mathrm{d}N}{N\cdot\mathrm{d}t}$，也即
+$$\dfrac{\mathrm{d}N}{\mathrm{d}t}=bN$$
+该方程表示动物种群的增长率正比于种群的数量——个体越多，生的越快。这是很好理解的。通过非常简单的分离变量法来解这个微分方程，并假设在$t=0$时种群数量为$N_0,$我们很快能得到这个微分方程在该初值条件下的解为$N(t)=N_0\mathrm{e}^{bt}$。这个式子表明种群数量随时间的变化呈现为急剧增长的指数函数——也就是高中生物课所谓的“J”型增长。</p>
+<p style="text-align: center;"><img alt="动物种群的J型增长曲线" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1530466652483&amp;di=3df0e1ab2c4dbfb86fe0c0a6298c7301&amp;imgtype=0&amp;src=http%3A%2F%2Fres.tongyi.com%2Fresources%2Farticle%2Fstudent%2Fothers%2Fxf090318%2Fxf%2Fgz%2Fsw%2F7.files%2Fimage007.gif" /></p>
+<p>无论是微分方程的解法还是生物学的理论，皆非此处所关心的重点问题。我们所关注的问题是：真实世界中，种群数量的增长真的是由这样的连续函数所确定的吗？事实上并非如此，因为一方面种群个体的数量总是整数，不可能遍历一个区间；另一方面，种群个体的数量也并非无时无刻不在增加，也就是说那个增长率$b$不可能表现为一个瞬态的变化系数。这些问题的根源归结于：种群个体数量增长这样一个过程，本来就是一个离散的过程；因此，出生率$b$也最多只能是关于一段足够长的时间所计算出来的比率，不可能用于描述连续的变化过程。在现实情况下，我们对于种群个数的记录总是离散的，例如我们选择每一年记录一次种群的数量——这时$t$只能取整数年，相应的变化模型则应表述为
+$$\dfrac{\Delta N}{\Delta t}=Nb_y$$
+这里$\Delta t$恒为一年，而$b_y$则表示年出生率——我们仍然假设其是恒定的。微分模型被转化为离散模型（也就是差分模型），种群的数量最终也并不会表现为指数函数了——它只会是一系列看起来呈指数增长的离散数据点而已。（如果结合$N(t)$的意义要求该函数在每一个时刻都应有值，那么函数图像就会是一个所谓分段函数的形态。）</p>
+<p>从这个例子我们可以得到什么？尽管在大多数自然科学问题中我们总是不自觉的使用那些在区间上任何实数点处都有值的函数（也就是一般人所理解的“连续函数”）来作为实际问题的数学模型，但我们所面对的现实世界却往往是离散的、不便于处理的。这一方面源于某些自然规律或实际问题本身就是以离散的变化而呈现出来（例如种群个体的出生与死亡，银行存款的利息生成，乃至量子论的相关结果），另一方面也出自于观测这一行为本身的有限性——我们不可能观测到无限个数据点，人眼有最小的视觉分辨频率，电子设备也有采样的时间间隔。这一系列原因导致我们所最终接触到的世界总是以离散的形态呈现于我们的面前，尽管我们倾向于认为这些离散形态因其极小的时间间隔而可被毫无顾忌的用连续模型加以概括。连续的函数在许多时候都比离散的数据更易于理解和应用——前提是这种连续的规律足够简单并已经为人类认识研究的足够透彻，例如初等函数或一部分特殊函数。</p>
+<p>在数学理论的领域以内，我们可以说有许许多多不同的函数，且在上一节我们也认识到只有连续函数能够通过相对“稀疏”的点加以确定，其余函数则可任意的改变它们在那些奇异点处的取值而不受约束。但是，在实际科学问题中，我们却会发现：我们最终所拥有的只有<strong>连续函数</strong>——包括一部分只有少数间断点的“几乎”连续函数。为何如此？因为我们总是在观测、记录数据时作出这样一个假设：</p>
+<blockquote>
+<p>观测和记录所得的数据，已经足以确定该函数的变化规律而没有过分的偏差。</p>
+</blockquote>
+<p>这不是与连续函数的性质十分类同吗？区别仅在于，我们的观测和记录总是有限的，因此即使是确定连续函数所要求的“所有有理点处函数值”我们也不可能全部获得。但总体而言，通过缩小观测间隔，我们可以保证观测结果的足够“充分”，接下来通过插值的方法所得的近似曲线之相对误差可以降到自然科学所容忍的范围以内。这“缩小观测间隔”的目的，也无非就是为了保证一件事情：</p>
+<blockquote>
+<p>在任意给定的时间点周围足够近的时间范围内，总是存在已经观测到的数据点。</p>
+</blockquote>
+<p>这样，再利用连续函数的特性，我们便可以放心的认为：利用观测数据加上插值等连续化方法所得到的函数曲线，基本上能够反映被观测量、被研究问题的真实情况。换句话说，在自然科学的领域内，我们利用连续函数在连续点附近<strong>相对平滑</strong>这一特性，来弥补观测有限这一问题，以降低其所造成的误差，保证科学规律最大的真实性。这就是连续函数在一般自然科学问题（特别是各种连续现象）中的重要意义与价值。</p>
+<p>而对于前面所言的那些离散模型问题（如生物种群数量），用连续函数来表征的意义在于将问题简单化，毕竟在较为简单的情形下微分方程比差分方程易于解决。再者，我们又何尝不能说生物种群在某一刻的数量是个小数呢？怀胎十月，我们不妨认为每过一个月这世界上就多了0.1个人，直到孩子诞生，人数达到1为止。所以，关于离散模型，我们也可以说是观测或记录上的间断所导致的，而连续函数的引入正是为了填补上那些没有数据点处的规律。</p>
+<p>当然，我们也得说，这里有很多例外。当我们的观测已经被约束局限于某些固定的特殊点，或待研究的现象表现为某种瞬时突变，连续函数的这种局域特性反而会显得多余，甚至会引发错误的结论。这时我们所应用的数学模型，又会有所改易。这些内容，在具体的学科领域之内，会有更加详细的讨论。</p>
+<h3 id="13">1.3 概念延伸：稠密集确定连续函数<a class="headerlink" href="#13" title="Permanent link"></a></h3>
+<p>前面我们一直在喋喋不休地重复“所有有理点确定连续函数”，这“所有的有理点”难道真的有什么特殊之处？其实，选取这一系列点为代表，有理数本身的诸多性质（比如可以表示为$p/q$）倒并没有发挥什么作用，唯一的要点在于：</p>
+<blockquote>
+<p>任何一个实数的任意小邻域内都有有理数。</p>
+</blockquote>
+<p>正是这一条性质使得我们最终得以确认连续函数只需要有理点就可以完全确定。事实上，不限于有理数集，只要任何一个数集满足这样的性质，我们都可以证明函数在这个数集上的取值就能唯一的确定一个连续函数。因此，我们给出这样一个定义：</p>
+<blockquote>
+<p>定义：设数集$A\subset B$，若任给$x\in B$及任意小的$\delta&gt;0,$总是存在$x&rsquo;\in A$满足$|x&rsquo;-x|&lt;\delta,$则我们称$A$是$B$的一个<strong>稠密子集</strong>，或称$A$在$B$中<strong>稠密</strong>。如果这里取$B=\mathbb{R}$，我们也常直称$A$是一个<strong>稠密集</strong>。</p>
+</blockquote>
+<p>于是，我们起初所讨论的那一个命题可以进一步拓展为：</p>
+<blockquote>
+<p>连续函数在整个实轴上的取值，可以唯一地由其在一个稠密集上的取值所决定。</p>
+</blockquote>
+<p>稠密集决定一个连续函数。这正是连续函数的神奇之处：部分决定整体。当然我们也得承认，这不是一种魔术，而是因为连续这两个字已经给连续函数施加了非常强的约束，这种约束使得整个实数集显得“多余”了。</p>
+<p>关于稠密集，我们还可以有更多的思考。例如，有理数集显然是一个稠密集，那么在有理数集中移出有限多个有理数之后，所得到的数集还是稠密的吗？显然还是。（证明或理解，交由读者自己完成。）那么我们忍不住要问，实数集最小的稠密集是什么呢？也就是说，是否存在一个稠密集$S$是其他所有稠密集的子集呢？若是有这样的一个数集，我们就可以只靠某一函数在$S$上的取值来“最经济”地决定一个连续函数了。关于这个问题，我所能给出的结论是：空想是徒劳的，因为没有这样的“最小稠密集”——既然我们已经确认任意稠密集去掉有限个点仍然稠密，那么如果真有这样一个最小稠密集$S$，给它去掉若干个点又如何呢？这必然与其最小性矛盾。这些内容，读者若感到有很强的兴趣，欢迎自学点集拓扑理论的相关内容；点集拓扑算是数学理论的柱石之一，然而相关知识对于自然科学的意义却比较寥寥，因此在这里就不再多费口舌了。（这里有Matrix 67上的几个比较简单而有趣的稠密集问题：<a href="http://www.matrix67.com/blog/archives/1480">再谈稠密性：令人吃惊的稠密集及其交集</a>）</p>
+<h2 id="2">2 何谓“有理”分析：数学分析的知识结构<a class="headerlink" href="#2" title="Permanent link"></a></h2>
+<p>以上我们讨论了连续函数的特殊价值。现在我们仍然从大家都有了解过的《高等数学》课本之中，再举出几个例子来——而它们并不是连续函数。</p>
+<ul>
+<li>Dirichlet函数：$D(x)=\begin{cases}1,x\in\mathbb{Q}\ ,x\notin\mathbb{Q}\end{cases}.$</li>
+<li>Riemann函数：$R(x)=\begin{cases}1/q,x=p/q\in\mathbb{Q},(p,q)=1\ ,x\notin\mathbb{Q}\end{cases}.$</li>
+<li>符号函数：$\mathrm{sgn}(x)=\begin{cases}1,x&gt;0\ ,x=0\-1,x&lt;0\end{cases}.$</li>
+<li>一个分段函数<sup id="fnref:1_1"><a class="footnote-ref" href="#fn:1_1" rel="footnote">2</a></sup>$f(x)=\begin{cases}\sin\dfrac{1}{x},x\neq0\ ,x=0\end{cases}.$</li>
+</ul>
+<p>前面两个函数可以说是高等数学乃至数学分析课程中各种“不存在”、“不是”问题的常客，唯一的例外可能是在可积性理论中要求你证明“Riemann函数是可积的”这样一个出人意料的结论；符号函数存在一个跳跃间断点（第一类），而最后一个分段函数以$0$为其振荡间断点（第二类），总之它们的性质都相对于一般的连续函数要奇异许多，也不便于处理。</p>
+<p>但是最重要的一点却在这里：这些函数，无一例外，几乎都是以反例的形象出现在课程当中，而未“再当大任”。在间断点的对应章节以外何尝再见到过所谓的振荡间断点？Dirichlet函数、Riemann函数和符号函数可曾有过什么实际的应用？皆没有。这些在后续课程中发挥重要作用的函数，在微积分的基础课程中则只是表现为差劲的反例，从这里我们便可以看到一个非常强的偏向：</p>
+<blockquote>
+<p>所谓的“高等数学”归根结底就是“连续函数论”。</p>
+</blockquote>
+<p>学过工科的复变函数课程的读者可能会马上联想到另外一个说法：</p>
+<blockquote>
+<p>所谓的“复变函数”归根结底就是“解析函数论”。</p>
+</blockquote>
+<p>这两者有非常高的相似性。高等数学课程的要求似乎是要求学生掌握利用微积分工具对“各类”函数进行研究，然而事实上我们在这门课程中从头到尾研究的都是连续或至多有几个寥落的间断点的函数而已！这是否是一种局限呢？这是出自于课程的安排不足，还是来自于古典微积分工具本身的缺陷，或是源于我们的实际需要确实仅止步于此呢？以下我们就来讨论这一系列的问题。</p>
+<h3 id="21">2.1 数学分析/高等数学的知识框架<a class="headerlink" href="#21" title="Permanent link"></a></h3>
+<p>这里我们应当首先列出数学分析或高等数学课程的具体知识框架，以便于我们来具体分析。为了简便起见，我仅按照一个非常粗略的结构来概述它们。读者若已经非常熟悉这些内容，请跳过。</p>
+<ul>
+<li>逻辑基础：实数理论（<em>高等数学无</em>）</li>
+<li>基本工具：极限理论【 数列和数列极限 | 函数极限 | 函数的连续性，初等函数的连续性 | 函数的阶，等价无穷小 | 函数的一致连续性（<em>高等数学可能无</em>） 】</li>
+<li>一元微分学【 导数和微分 | 微分中值定理，不等式 | Taylor公式 | 函数性质与函数作图 】</li>
+<li>一元积分学【 不定积分（原函数） | 定积分的定义（Riemann积分） | 可积性理论（<em>高等数学无</em>） | Newton-Leibniz公式（微积分学基本定理） | 广义积分，敛散性判别 | 微元法，积分应用（<em>数学分析讨论稍少</em>） 】</li>
+<li>多元微分学 【 理论基础：$\mathbb{R}^n$空间，其上的拓扑（<em>高等数学几乎不讨论</em>） | 多元函数及其极限 | 偏导数与全微分，梯度 | 隐/反函数存在定理，求导公式（<em>高等数学可能无</em>） | 多元函数Taylor公式（<em>高等数学可能无</em>） | 有/无约束极值问题 】</li>
+<li>高维空间上的积分学 【 重积分（二重、三重积分） | 含参积分，敛散性判别（<em>高等数学无</em>） | 线面积分 | Green公式，Gauss公式，Stokes公式 | 场论初步 】</li>
+<li>常微分方程初步（<em>数学分析常无，单独开一门专业课</em>） 【 简易常微分方程（分离变量，齐次，常数变易法，可降阶） | 高阶线性微分方程（组） | 恰当方程与积分因子 | 各类换元法 】</li>
+<li>无穷级数理论 【 数项级数的敛散性判别（正项级数，一般项级数） | 函数项级数的收敛域 | 函数项级数的一致收敛性，极限换序理论（<em>高等数学可能无，或讨论不深</em>） | 幂级数，收敛半径，函数的幂级数展开 | Fourier级数初步（<em>部分教材或课程可能无</em>） 】</li>
+</ul>
+<p>越过这长长的一段提纲，我们需要注意到一点：这看似庞杂的内容，其实可以归结为两个<strong>中心</strong>——以古典微积分及相应工具（导数、积分、常微分方程、无穷级数）为<strong>理论安排的中心</strong>，以连续函数为<strong>研究对象的中心</strong>。前者是显性的，而后者却是隐性的；我们能见到许多名为《解析函数论》的书，却还没有见到过所谓《连续函数论》的书，因为并不是连续函数——而是古典微积分理论赋予了高等数学或者数学分析课程以最大的意义。（在复变函数理论中则有所不同，解析函数本身具有的优良性质在很大程度上引领了早期复变函数理论的研究。）</p>
+<p>尽管如此，我们却仍然需要意识到连续函数在这两门课程之中的重要性。对于数学系学生而言，其重要性倒是可以稍微搁置一边，毕竟连续函数只是他们将来要研究的各类函数和数学对象之中普普通通、轻松易懂的一类罢了；但对于将要走上工程或研究岗位、与实际问题打交道的学生们来说，连续函数（从这里开始我总是用这个词指代连续函数或只有少量简短点的函数之总称）却将是他们最经常甚至是唯一有可能接触到的数学对象<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">3</a></sup>——要和它们打一辈子的交道。这件事情从古典微积分诞生的数百年来，似乎都还没有发生过太大的变化——这反映了连续函数与实际问题之间非常特殊的一种联系。这是严谨、“完美”的理论在现实世界中一个最令人感到亲切的投影。</p>
+<h3 id="22">2.2 从稠密集到连续集，从《数学分析》到《实变函数论》<a class="headerlink" href="#22" title="Permanent link"></a></h3>
+<p>不知道读者是否对实数系理论有所了解？如果读者还完全没有接触过这一内容，不妨抽空读一读本博客中的两篇诙谐有趣的概述<a href="https://www.cnblogs.com/xjtu-blacksmith/p/7616948.html">实数系与实数定理（上）</a>与<a href="http://www.cnblogs.com/xjtu-blacksmith/p/7625717.html">实数系与实数定理（下）</a>。下面的内容都由实数理论的相关内容说起。</p>
+<p>我们知道，数学分析或高等数学所研究的对象，是“<em>实数系上的函数</em>”；然而前面种种分析叙述已经表明，唯有连续函数是这两门课程的主线，对于工科生而言连续函数甚至是他们唯一熟悉的东西。一方面，我们已经讲清，在实际的工程、科学技术问题中，的确只有连续函数是最为适合的研究对象和理论依据；另一方面，我们也应当认识到，在数学分析或高等数学课程中所使用的古典微积分工具，本身就是出自于当时的数学家们对连续函数的研究、归纳与把握。</p>
+<p>就以古典的Riemann积分为例。齐民友先生的《重温微积分》一书中有一节标题为“<em>这样评价Riemann公正吗？</em>”讨论的是Riemann积分的缺陷与不足究竟应当怎样看待。在现代数学家们看来，Riemann积分是非常粗糙的，法国的著名数学家Dieudonne在他的《现代分析基础》一书之中甚至完全没有涉及Riemann积分，原因是：</p>
+<blockquote>
+<p>如果不是它的带有权威的名字，它老早就该没落下去了……现今这一“理论”的重要性在测度与积分的一般理论中，最多不过是一普通的有趣的练习……长久以后必将失去它的历史重要性。</p>
+</blockquote>
+<p>在此我们倒不必探讨Dieudonne先生的这个预言是否得到应验，反正到现在为止国内大部分数学系学生分析课本上的积分理论也还没有直接换成一般的测度积分理论。前沿数学家们持这样观点的原因在于，由Riemann最终概括总结的这套古典微积分理论，是出自于几百年前（Newton与Leibniz的时代）就基本成形的对连续函数和实际物理问题的研究。它虽然易于理解但缺乏一般性，完全可以充作现代分析理论下一个非常不起眼的特例来看待。这里我们是不是该惊呼数学家和其他自然科学工作者之间的巨大差异呢？</p>
+<p>数学史上有许多非常为人熟知的故事：所谓“函数”定义的<a href="http://www.math168.com/sxsh/888.htm">变迁</a>（John Bernoulli, Euler, Cauchy, Fourier, Dirichlet, 一直到近现代的数学家们）；分析学家关于收敛性（主要是级数收敛性）漫长的<a href="https://wenku.baidu.com/view/8cbeadd376eeaeaad1f33046.html?sxts=1530453114865">探索过程</a>；分析学的算术化（实数理论的建立）……从这一系列的故事中我们可以发现关键的一个线索：数学家从直观认识走向严谨理论经历了漫长的历史阶段，而这所谓的“直观认识”则正是今天的连续函数。没有人会在Newton或者Euler所在的时代提出所谓“处处不连续函数”或者“无穷多个间断点”——在他们看来，函数本来就应当是连续的，是一条曲线，是“随手画出来的”。从历史发展的角度来说，如果不是出现了某些危机（例如看似连续Fourier级数收敛于存在间断点的函数），我们完全可以把古典微积分的应用范围乃至数学研究的范围局限于连续函数类之中——就像最终是三次方程而不是二次方程推动了虚数和复数理论的发展。然而，一旦走出这和谐美好、符合直观的“温室”，数学家们似乎就再也没法走回来了，哪怕有许多的指责与质疑，因为在连续函数之外我们确实看到了许多更加丰富的内容，就像进入看似玄虚的复数域却给数学理论与科学技术领域带来了极大的方便。</p>
+<p>关于数学分析，我们要说的最重要的一点是什么呢？也许不仅仅是连续函数的问题了，而应当归结到实数系的性质上去：</p>
+<blockquote>
+<p>古典微积分所研究的一切内容，几乎都仅限于实数系的数域性质、有序性质和阿基米德性质（即无界性质），而很少真正利用实数系独有的连续性。换句话说，我们完全可以仅在有理数集上建立一套微积分体系——只要我们稍稍修改相关定义即可。</p>
+</blockquote>
+<p>那么我们为什么还要将研究的范围扩张至实域呢？原因无非是：实数域是我们所认为真实存在的“数”之总和（可以参见<a href="http://www.cnblogs.com/xjtu-blacksmith/p/7625717.html">实数系与实数定理（下）</a>的最后一节内容），因而有必要将其统一囊括起来，哪怕有理数之外的无理数在实际研究问题之中并不真正比有理数特殊多少，更何况我们应当指出我们所观测到和记录到的一切数据<em>本质上都是有理数</em>。这是对于面向实际问题的学生们特别重要的一点，他们不必拘束于繁杂严谨的数学框架之下，而应当将更多的精力放在对于实际问题的研究与把握之上。理论的严谨与成体系与应用上的简洁方便总是存在着一点矛盾，这是有待于我们去解决的问题。</p>
+<p>由于有理数集不完备，我们当然可以找到无数个收敛于无理数的有理数列，这确实是理论上的空缺，需要由更加深刻完备的理论加以补充；但是，对于应用者而言，他完全可以不必理会这样的数列，如果他限定数列收敛于一个有理数或某个无理数的有理近似（如小数点后若干位）而已，那么这一类数列对他而言便没有任何研究的价值，诸如此类。我在这里想说的是，我们既要看到理论是如何一层一层完备严谨起来的，也要认识到在自己将来所要面临的领域与问题之中哪些东西是多余的、是不必考虑的。</p>
+<p>那么，在哪里我们真正的要让实数集的连续性派上用场呢？那就是数学系的实变函数课程了。本来在这里还可以接下去讨论许多有趣的内容，但写到这里我突觉如此将有破坏文章主旨之嫌，因此这些内容不妨留到以后有空时再专辟一章来叙述。读者切不要秉持流行的偏见，把实变函数论所研究的内容一并视为现实世界中不存在的反例、怪物；我想在这里引用齐民友老先生在《重温微积分》第四章中的一段评述：</p>
+<blockquote>
+<p>反例的重要性在于它揭露了无法回避的矛盾。</p>
+</blockquote>
+<p>无论数学家与自然科学工作者各自怎样看待这些课程、知识、内容，他们一定都会赞同一个结论：我们的知识与科学，总是需要不断的前进与提高，而这是每一个人的责任。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>在实函数理论中有许多其他更加重要深刻、重要的结论，它们足以概括这个命题所叙述的有关特性（否则这个命题也该作为一条定理列入教材当中了）。我在本文中就这一命题大写特说的原因无非在于，它比那些重要结论更加通俗易懂，便于之后行文的展开与读者的理解接受。&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1_1">
+<p>这个函数也被称作“拓扑学家的正弦函数（曲线）”。&#160;<a class="footnote-backref" href="#fnref:1_1" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>我们可能还会考虑到有诸如广义函数等等之类更多的东西，这里只能说是一种粗浅的表述吧。&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+  </article>
+   <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      });
+  </script>
+</body>
+</html>
