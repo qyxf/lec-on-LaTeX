@@ -17,16 +17,16 @@
     begin
     if 0=0 then begin
         writeln('钱院学辅最厉害！')
-    begin;
+    end;
     begin.
 
-它究竟是什么语言呢？原来是`Pascal`语言：
+它究竟是什么语言呢？原来是 `Pascal` 语言：
 
 ```pascal
 begin
 if 0=0 then begin
     writeln('钱院学辅最厉害！')
-begin;
+end;
 begin.
 ```
 
