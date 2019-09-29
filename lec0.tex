@@ -14,7 +14,7 @@ pdfpagemode = FullScreen,
   \usefonttheme{serif}
 }
 
-\title[Tech Lec]{钱院学辅技术讲座}
+\title[Technical Lecture of QYXF]{钱院学辅技术讲座}
 \subtitle{第零讲：总述}
 
 \author[xjtu-blacksmith]{黑山雁}
@@ -28,10 +28,10 @@ pdfpagemode = FullScreen,
 
 \subject{技术,讲座}
 
-\AtBeginSubsection[]
+\AtBeginSection[]
 {
   \begin{frame}<beamer>{目录}
-    \tableofcontents[currentsection,currentsubsection]
+    \tableofcontents[currentsection]
   \end{frame}
 }
 
@@ -47,22 +47,142 @@ pdfpagemode = FullScreen,
     \tableofcontents
 \end{frame}
 
-\section{关于“技术”}
-\subsection{学辅的技术宗旨}
-% 1. 开源协作，寻求外部支持
-% 2. 用最简单、最高效的技术/工作方式
-% 3. 内容大于形式
+\section{关于学辅与「技术」}
+
+\subsection{钱院学辅简介}
+\begin{frame}{钱院学辅简介}{这不是推广页面}
+\begin{description}
+    \item[钱院学辅] 全称「西安交通大学钱学森书院学生会学业辅导中心」，是校级学业辅导中
+    心在钱学森书院的分支机构。
+    \item[目前工作] 线上与线下答疑、\textbf{资料编写}、筹办讲座与交流活动等。
+    \item[技术部门] 负责一系列技术手段的测试与维护：\LaTeX{} 排版技术、网站建设、文档下载
+    平台……
+    \item[GitHub 主页] \url{https://github.com/qyxf}
+    \item[信息站] \url{https://qyxf.site}   
+\end{description}
+\end{frame}
+
+
+
+\subsection{我来学什么？}
+
+\begin{frame}{我来学什么？}
+\begin{itemize}
+    \item 能源、材料、\textbf{信息}
+    \item 信息需要整理、分析、呈现！
+    \item 发布我的信息：聊天信息、Word 文档、PDF 文档、网站页面、公众号推送……
+    \item 三大板块：开源协作、专业排版、网站建设
+    \begin{description}
+        \item[开源协作] 利用、改进已有成果，不重造轮子
+        \item[专业排版] 为你的优质内容锦上添花
+        \item[网站建设] 学习最快、最方便的网站搭建方法  
+    \end{description}
+\end{itemize}
+\end{frame}
+
+\subsection{我们的原则}
+\begin{frame}{我们的原则}
+\begin{enumerate}
+    \item 用门槛最低、最为方便的手段实现需求。
+    \item 在以上前提下，追求最佳效果、最优体验。
+    \item 在以上前提下，注意「内容大于形式」的原则。
+\end{enumerate}
+\end{frame}
+
 \subsection{给自己定位}
-% 我是什么专业？将来想干什么？我想在学辅获得什么？
-% 我有多少空闲时间？我对什么感兴趣？这对我的主业有无帮助？
-% 我不是程序员！
+\begin{frame}{给自己定位}
+\begin{itemize}
+    \item 我是什么专业？将来想干什么？
+    \item 我有多少空闲时间？我对什么感兴趣？这对我的主业有无帮助？
+    \item 我不是程序员！
+\end{itemize}
+
+\begin{alertblock}{学习「技术」的第一原则}
+记得自己的主业，牢记自己学习的目的，注意时间与精力的分配。
+\end{alertblock}
+
+\end{frame}
 
 \section{内容总述}
-% 第一讲：网页与 Markdown
-% 第二讲：Git 与 GitHub
-% 第三讲：TeX 基础
-% 第四讲：LaTeX 入门
-% 第五讲：LaTeX 提高与排版规范
+
+\subsection{第一讲：网页与 Markdown}
+\begin{frame}{第一讲：网页与 Markdown}
+\begin{enumerate}
+    \item 网页设计原理：新「三剑客」（HTML、CSS、Javascript）
+    \item 为何 Markdown：提高文档编写效率，拓宽文档的应用范围
+\end{enumerate}
+
+\begin{block}{结论一}
+Markdown 是目前最易于使用的文本标记语言，没有之一。
+\end{block}
+
+\end{frame}
+
+\subsection{第二讲：Git 与 GitHub}
+\begin{frame}{第二讲：Git 与 GitHub}
+\begin{enumerate}
+    \item 「开源」探讨：从程序员的圈子之外来看「开源世界」
+    \item Git 简介：一切提交，均有备份
+    \item 走近 GitHub：欢迎来到「全球最大同性交友网站」！
+\end{enumerate}
+
+\begin{block}{结论二}
+「开源」将在未来几十年内成为大学生的必修课。
+\end{block}
+
+\begin{block}{结论三}
+使用 GitHub Pages + Markdown 渲染工具是目前最快、最方便的建站方式。
+\end{block}
+
+\end{frame}
+
+\subsection{第三讲：\TeX{} 基础}
+\begin{frame}{第三讲：\TeX{} 基础}
+\begin{enumerate}
+    \item 排版基础：逃离 Office 舒适圈！
+    \item \TeX{} 基础：什么叫专业排版！（战术后仰）
+\end{enumerate}
+
+\begin{block}{结论四}
+排版是一项非常专业的工作；但我们只需要稍加学习，即可远远超越平均水平。
+\end{block}
+\end{frame}
+
+\subsection{第四讲：\LaTeX{} 入门}
+\begin{frame}{第四讲：\LaTeX{} 入门}
+\begin{enumerate}
+    \item \LaTeX{} 学习新思路：从 Markdown 开始
+    \item \LaTeX{} 的基本编写流程与进一步学习：\LaTeX{} 真的需要终身学习！
+\end{enumerate}
+
+\begin{block}{结论五}
+\[\text{\LaTeX}\approx\text{\TeX}+\text{Markdown}\]
+\end{block}
+\end{frame}
+
+\subsection{第五讲：\LaTeX{} 提高与排版规范}
+\begin{frame}{第五讲：\LaTeX{} 提高与排版规范}
+\begin{enumerate}
+    \item \LaTeX{} 的宏包：一份宏包，一分效果！
+    \item 中西文排版规范：从源头保护大家的眼睛。
+    \item 终章：没有尽头的学习与实践之路。
+\end{enumerate}
+
+\begin{block}{结论六}
+明确的目标、开阔的视野，比技术本身更加重要。
+\end{block}
+\end{frame}
+
+\section{最后……}
+\begin{frame}{最后……}
+\begin{block}{讲座的文本资料}
+\url{https://qyxf.site/technique/}
+\end{block}
+
+\begin{block}{讲座幻灯片下载}
+\url{https://qyxf.site/BookHub/007.technical-lecture/}
+\end{block}
+\end{frame}
 
 \end{document}
 
